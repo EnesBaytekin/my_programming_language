@@ -1,0 +1,1 @@
+flex mpl.l && bison -d mpl.y && gcc lex.yy.c mpl.tab.c -o mpl.exe

@@ -1,0 +1,60 @@
+<program> ::= <function>
+<function> ::= <function> <statement> | ""
+<statement> ::= ";"
+              | <expression> ";"
+              | "print" "(" <expression> ")" ";"
+              | "while" "(" <expression> ")" <statement>
+              | <var> "=" <expression> ";"
+              | "for" "(" <var> "=" <expression> ":" <expression> ")" <statement>
+              | "if" "(" <expression> ")" <statement>
+              | "if" "(" <expression> ")" <statement> "else" <statement>
+              | "{" <statement_list> "}"
+<statement_list> ::= <statement> | <statement_list> <statement>
+<expression> ::= <int>
+               | <flt>
+               | <chr>
+               | <str>
+               | <var>
+               | "#"
+               | <var> "[" <expression> "]"
+               | "to_int" "(" <expression> ")"
+               | "to_flt" "(" <expression> ")"
+               | "to_chr" "(" <expression> ")"
+               | "to_str" "(" <expression> ")"
+               | "type" "(" <expression> ")"
+               | "length" "(" <expression> ")"
+               | "not" <expression>
+               | "-" <expression>
+               | <expression> "or" <expression>
+               | <expression> "and" <expression>
+               | <expression> "+" <expression>
+               | <expression> "-" <expression>
+               | <expression> "*" <expression>
+               | <expression> "/" <expression>
+               | <expression> "<" <expression>
+               | <expression> ">" <expression>
+               | <expression> "==" <expression>
+               | <expression> "!=" <expression>
+               | <expression> ">=" <expression>
+               | <expression> "<=" <expression>
+               | "(" <expression> ")"
+<var> ::= <letter> <letter_digits>
+<int> ::= <int> <digit> | <digit>
+<flt> ::= <int> "." <int>
+<chr> ::= "'" <character> "'"
+<str> ::= '"' <inside_string> '"'
+<inside_string> ::=  <inside_string> <escapes> <inside_string> | <characters>
+<escapes> ::= "\n" | "\t" | "\\" | '\"' | ""
+<characters> ::= <characters> <character> | ""
+<character> ::= <letter> | <digit> | <symbol>
+<letter_digits> ::= <letter_digits> <letter_digit> | ""
+<letter_digit> ::= <letter> | <digit>
+<symbol> ::= " " | "!" | '"' | "#" | "$" | "%" | "&" | "'" | "(" | ")" | "*" | "+" | ","
+           | "-" | "." | "/" | ":" | ";" | "<" | "=" | ">" | "?" | "@" | "[" | "\" | "]"
+           | "^" | "`" | "{" | "|" | "}" | "~"
+<letter> ::= "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
+           | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+           | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
+           | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+           | "_"
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
